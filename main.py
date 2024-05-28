@@ -2,6 +2,12 @@ from abc import ABC, abstractmethod
 import msvcrt
 import os
 from Models.puma_model import Puma
+#####CHUUJjn
+import pygame
+import pygame.draw
+from pygame.locals import *
+from OpenGL.GL import *
+from OpenGL.GLU import *
 
 def clear_input_buffer():
     try:
@@ -23,30 +29,37 @@ def non_blocking_input():
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
-puma_robot = Puma()
+# puma_robot = Puma()
+# while True:
+#     move = non_blocking_input()
+#     if move == 'w':
+#         print('w')
+#         puma_robot.p2_spin_forward()
+#         puma_robot.show_positions()
+#     elif move =='s':
+#         print('s')
+#         puma_robot.p2_spin_backward()
+#         puma_robot.show_positions()
+#     elif move =='a':
+#         print('a')
+#         puma_robot.p1_spin_left()
+#         puma_robot.show_positions()
+#     elif move =='d':
+#         print('d')
+#         puma_robot.p1_spin_right()
+#         puma_robot.show_positions()
+#     elif move == 'l':
+#         break
+#     elif move == 'k':
+#         puma_robot.p3_spin_backward()
+#         puma_robot.show_positions()
+#     elif move == 'i':
+#         puma_robot.p3_spin_forward()
+#         puma_robot.show_positions()
+window = pygame.display.set_mode((600, 600))
+# Define the color of the cube
+color = (204, 204, 204)
 while True:
-    move = non_blocking_input()
-    if move == 'w':
-        print('w')
-        puma_robot.p2_spin_forward()
-        puma_robot.show_positions()
-    elif move =='s':
-        print('s')
-        puma_robot.p2_spin_backward()
-        puma_robot.show_positions()
-    elif move =='a':
-        print('a')
-        puma_robot.p1_spin_left()
-        puma_robot.show_positions()
-    elif move =='d':
-        print('d')
-        puma_robot.p1_spin_right()
-        puma_robot.show_positions()
-    elif move == 'l':
-        break
-    elif move == 'k':
-        puma_robot.p3_spin_backward()
-        puma_robot.show_positions()
-    elif move == 'i':
-        puma_robot.p3_spin_forward()
-        puma_robot.show_positions()
+    # Draw the cube
+    pygame.draw.rect(window, color, pygame.Rect(150, 150, 50, 50))
+    pygame.display.flip()

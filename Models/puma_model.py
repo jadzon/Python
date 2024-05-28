@@ -1,9 +1,14 @@
+from array import *
 class Puma:
     def __init__(self):
         self.p1_rotation = 0.0
         self.p2_rotation = 90.0
         self.p3_rotation = 90.0
         self.p4_rotation = 0.0
+        self.staw1 =array('f',[0,0,10])
+        self.staw2 =array('f',[0,10,20])
+
+
     def p1_spin_left(self):
         if self.p1_rotation == 359.0:
             self.p1_rotation = 0
